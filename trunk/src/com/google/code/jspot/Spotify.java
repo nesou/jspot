@@ -116,7 +116,7 @@ public class Spotify {
      * search for an album
      * @param query the query
      * @param page the page of the results 
-     * @return
+     * @return the search results
      * @throws IOException
      */
     public Results<Album> searchAlbum(String query, int page) throws IOException {

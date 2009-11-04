@@ -7,6 +7,7 @@ package com.google.code.jspot;
 
 /**
  *
+ * Represents a spotify item (such as an artist, album or track)
  * @author plamere
  */
 public class SpotifyItem {
@@ -15,24 +16,36 @@ public class SpotifyItem {
     private String name;
     private float popularity;
 
-    public SpotifyItem(String id, String name, float popularity) {
+    SpotifyItem(String id, String name, float popularity) {
         this.id = id;
         this.name = name;
         this.popularity = popularity;
     }
 
-    public SpotifyItem(String id, String name) {
+    SpotifyItem(String id, String name) {
         this(id, name, UNKNOWN_POPULARITY);
     }
 
+    /**
+     * Gets the ID of this item
+     * @return the ID
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * Gets the name of the item
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Gets the popularity of the item
+     * @return the popularity (or -1 if unknown)
+     */
     public float getPopularity() {
         return popularity;
     }

@@ -6,16 +6,16 @@
 package com.google.code.jspot;
 
 /**
- *
+ * Represents an Artist
  * @author plamere
  */
 public class Artist extends SpotifyItem {
 
-    public Artist(String id, String name, float popularity) {
+    Artist(String id, String name, float popularity) {
         super(id, name, popularity);
     }
 
-    public Artist(String id, String name) {
+    Artist(String id, String name) {
         super(id, name);
     }
 

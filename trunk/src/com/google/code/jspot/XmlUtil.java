@@ -16,7 +16,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class XmlUtil {
+class XmlUtil {
 
     public static String getElementContents(Element element, String elementName) throws IOException {
         Element first = getFirstElement(element, elementName);

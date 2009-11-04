@@ -45,7 +45,7 @@ import org.xml.sax.SAXException;
 /**
  * A utility for interacting with REST style web services
  */
-public class Commander {
+class Commander {
 
     private String name;
     private String prefix;

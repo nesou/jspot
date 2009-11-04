@@ -6,11 +6,10 @@
 package com.google.code.jspot;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
- *
+ * Represents an album
  * @author plamere
  */
 public class Album extends SpotifyItem {
@@ -21,22 +20,38 @@ public class Album extends SpotifyItem {
     private int released = -1;
 
 
-    public Album(String id, String name, float popularity) {
+    Album(String id, String name, float popularity) {
         super(id, name, popularity);
     }
 
+    /**
+     * gets the ID of the artist
+     * @return the ID
+     */
     public String getArtistID() {
         return artistID;
     }
 
+    /**
+     * gets the name of the artist
+     * @return the name
+     */
     public String getArtistName() {
         return artistName;
     }
 
+    /**
+     * gets the available territories for the album
+     * @return the available territories
+     */
     public String[] getAvailableTerritories() {
         return availableTerritories;
     }
 
+    /**
+     * Gets the map of IDS
+     * @return the IDS
+     */
     public Map<String, String> getIds() {
         return ids;
     }
@@ -65,6 +80,10 @@ public class Album extends SpotifyItem {
                 " ids " + ids.size() + "\n" ;
     }
 
+    /**
+     * Gets the year of release
+     * @return the year of release
+     */
     public int getReleased() {
         return released;
     }
