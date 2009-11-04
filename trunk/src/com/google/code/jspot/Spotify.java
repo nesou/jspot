@@ -154,6 +154,19 @@ public class Spotify {
 
     /**
      * Search for tracks
+     * @param artist the name of the artist
+     * @param track the name of the track
+     * @param page the page number
+     * @return results of the search
+     * @throws IOException
+     */
+    public Results<Track> searchTrack(String artist, String track, int page) throws IOException {
+        String query = "artist:\"" + artist + "\"  track:\"" + track + "\"";
+        return searchTrack(query, page);
+    }
+
+    /**
+     * Search for tracks
      * @param artist the artist
      * @param album the album
      * @param track the track
@@ -233,7 +246,7 @@ public class Spotify {
     }
 
 
-    public static void main(String[] args) throws IOException {
+    public static void test() throws IOException {
         Spotify spotify = new Spotify();
         System.out.println(spotify.searchArtist("weezer"));
         System.out.println(spotify.searchTrack("My Name Is Jonas"));
@@ -252,5 +265,34 @@ public class Spotify {
                 System.out.printf("%d %s\n", count++, track.getName());
             }
         } while (!results.isLast());
+    }
+
+    private static String concat(String[] args) {
+        StringBuilder sb = new StringBuilder();
+        for (String s : args) {
+            sb.append(s);
+            sb.append(" ");
+        }
+        return sb.toString().trim();
+    }
+
+    public static void main(String[] args) throws IOException {
+        if (args.length == 0) {
+            System.out.println("Usage: Spotify artist name");
+        } else {
+            String artist = concat(args);
+            Spotify spotify = new Spotify();
+            Results<Track> results = null;
+            int page = 1;
+            do {
+                results = spotify.searchTrack("artist:" + artist, page);
+                page = results.getNextPage();
+                for (Track track : results.getItems()) {
+                    System.out.printf("%.2f %s // %s // %s\n",
+                                track.getPopularity(), track.getArtistName(),
+                                track.getAlbum().getName(), track.getName());
+                }
+            } while (!results.isLast());
+        }
     }
 }
