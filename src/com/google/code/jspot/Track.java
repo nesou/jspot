@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
+ * Represents a track
  * @author plamere
  */
 public class Track extends SpotifyItem {
@@ -20,10 +20,14 @@ public class Track extends SpotifyItem {
     private String artistId;
     private Map<String, String> idMap = new HashMap<String, String>();
 
-    public Track(String id, String name, float popularity) {
+    Track(String id, String name, float popularity) {
         super(id, name, popularity);
     }
 
+    /**
+     * Gets the album for the track
+     * @return the album
+     */
     public Album getAlbum() {
         return album;
     }
@@ -32,6 +36,10 @@ public class Track extends SpotifyItem {
         this.album = album;
     }
 
+    /**
+     * Gets the ID of the artist
+     * @return the ID of the artist
+     */
     public String getArtistId() {
         return artistId;
     }
@@ -40,6 +48,10 @@ public class Track extends SpotifyItem {
         this.artistId = artistId;
     }
 
+    /**
+     * Gets the name of the artist for the track
+     * @return the name
+     */
     public String getArtistName() {
         return artistName;
     }
@@ -48,6 +60,10 @@ public class Track extends SpotifyItem {
         this.artistName = artistName;
     }
 
+    /**
+     * Gets the map of ids for the track
+     * @return map of ids
+     */
     public Map<String, String> getIdMap() {
         return idMap;
     }
@@ -56,6 +72,10 @@ public class Track extends SpotifyItem {
         idMap.put(id, val);
     }
 
+    /**
+     * Gets the length of the track
+     * @return the length in seconds
+     */
     public float getLength() {
         return length;
     }
@@ -64,6 +84,10 @@ public class Track extends SpotifyItem {
         this.length = length;
     }
 
+    /**
+     * Gets the track number on the album
+     * @return the track number
+     */
     public int getTrackNumber() {
         return trackNumber;
     }
