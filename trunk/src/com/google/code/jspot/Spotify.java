@@ -246,7 +246,7 @@ public class Spotify {
     }
 
 
-    public static void test() throws IOException {
+    private static void test() throws IOException {
         Spotify spotify = new Spotify();
         System.out.println(spotify.searchArtist("weezer"));
         System.out.println(spotify.searchTrack("My Name Is Jonas"));
